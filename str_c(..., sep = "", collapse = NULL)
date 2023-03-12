@@ -1,0 +1,31 @@
+str_c(..., sep = "", collapse = NULL)
+# 前两条语句有相同的作用
+str_c("Letter: ", letters[1:5])
+# [1] "Letter: a" "Letter: b" "Letter: c" "Letter: d" "Letter: e"
+ 
+str_c("Letter", letters[1:5], sep = ": ")
+# [1] "Letter: a" "Letter: b" "Letter: c" "Letter: d" "Letter: e"
+ 
+# 可以合并任意多个字符串
+str_c(letters[1:5], " is for", "...")
+# [1] "a is for..." "b is for..." "c is for..." "d is for..." "e is for..."
+ 
+# 不使用collapse时得到的是字符向量
+str_c(letters[1:5])
+# [1] "a" "b" "c" "d" "e"
+ 
+# 使用collapse时，该字符向量被合并成字符串
+str_c(letters[1:5],collapse = "")
+# [1] "abcde"
+ 
+str_c(letters[1:5],collapse = ",")
+# [1] "a,b,c,d,e"
+
+和多数R函数相同，缺失值是可传染的。如果需要将缺失值输出为"NA"，可以使用str_replace_na()函数。
+# Missing inputs give missing outputs
+str_c(c("a", NA, "b"), "-d")
+# [1] "a-d" NA    "b-d"
+ 
+# Use str_replace_NA to display literal NAs:
+str_c(str_replace_na(c("a", NA, "b")), "-d")
+# [1] "a-d"  "NA-d" "b-d"
