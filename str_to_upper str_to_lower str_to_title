@@ -1,0 +1,10 @@
+r.letter <- "YdJDdaLA"
+upper.letter <- str_to_upper(r.letter)  #大写
+lower.letter <- str_to_lower(r.letter)  #小写
+title.letter <- str_to_title(r.letter)  #首字母大写
+> upper.letter
+[1] "YDJDDALA"
+> lower.letter
+[1] "ydjddala"
+> title.letter
+[1] "Ydjddala"
