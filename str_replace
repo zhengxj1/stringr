@@ -1,0 +1,24 @@
+comma <- "7,99"
+replace.comma <- str_replace(comma, ",", ".")
+> replace.comma
+[1] "7.99"
+ 
+fruits <- c("one apple", "two pears", "three bananas")
+str_replace(fruits, "a", "-")
+# [1] "one -pple"     "two pe-rs"     "three b-nanas"
+ 
+str_replace_all(fruits, "a", "-")
+# [1] "one -pple"     "two pe-rs"     "three b-n-n-s"
+ 
+str_replace_all(fruits, "a", toupper)
+# [1] "one Apple"     "two peArs"     "three bAnAnAs"
+ 
+str_replace_all(fruits, "a", NA_character_)
+# [1] NA NA NA
+ 
+str_replace_all(fruits,c("one" = "1", "two" = "2", "three" = "3"))
+# [1] "1 apple"   "2 pears"   "3 bananas"
+ 
+Rcode替换
+d$metas[which(d$metas=="M")]="1"
+d$metas=as.numeric(d$metas)
