@@ -1,0 +1,36 @@
+场景：常跟ifelse函数配合使用，对某一列字符串进行判断是否匹配。多用于新建列 
+str_detect() returns a logical vector with TRUE for each element of string that matches pattern and FALSE otherwise. It's equivalent to grepl(pattern, string).
+str_detect(string, pattern, negate = FALSE)
+df <- data.frame(a = c(1, 2, 3, "a", "b", "c"))
+df$b <- ifelse(str_detect(df$a, "\\d"), "数字", "非数字")
+df
+  a      b
+1 1   数字
+2 2   数字
+3 3   数字
+4 a 非数字
+5 b 非数字
+6 c 非数字
+ 
+和which何用
+data[which(str_detect(data,"")==TRUE)]
+
+### ** Examples
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_detect(fruit, "a")
+[1] TRUE TRUE TRUE TRUE
+str_detect(fruit, "^a")
+[1]  TRUE FALSE FALSE FALSE
+str_detect(fruit, "a$")
+[1] FALSE  TRUE FALSE FALSE
+str_detect(fruit, "b")
+[1] FALSE  TRUE FALSE FALSE
+str_detect(fruit, "[aeiou]")
+[1] TRUE TRUE TRUE TRUE
+# Also vectorised over pattern
+str_detect("aecfg", letters)
+ [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[21] FALSE FALSE FALSE FALSE FALSE FALSE
+# Returns TRUE if the pattern do NOT match
+str_detect(fruit, "^p", negate = TRUE)
+[1]  TRUE  TRUE FALSE FALSE
