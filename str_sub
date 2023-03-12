@@ -1,0 +1,7 @@
+guige <- c("iphone x", "mate 10")
+#颜色用不同分隔符合并
+guige.yanse <- c("iphone x_black", "mate 10 white")
+#用str_length函数算出规格长度
+yanse <- str_sub(guige.yanse, str_length(guige)+2, str_length(guige.yanse))
+> yanse
+[1] "black" "white"
