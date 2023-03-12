@@ -1,0 +1,45 @@
+str_extract(string, pattern)
+str_extract_all(string, pattern, simplify = FALSE)
+str_extract()和str_locate()用法基本一致，不过后者返回的是与pattern匹配的位置，而前者返回的是与pattern匹配的字符串。这两个函数通常与正则表达式搭配使用。
+其中str_extract_all()中的simplifyc参数决定返回值是列表还是矩阵。
+
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_extract(fruit, "e")
+# [1] "e" NA  "e" "e"
+ 
+str_extract(fruit, c("a", "b", "p", "p"))
+#[1] "a" "b" "p" "p"
+ 
+# simplify = FALSE 返回一个列表
+str_extract_all(fruit, "e")
+# [[1]]
+[1] "e"
+ 
+[[2]]
+character(0)
+ 
+[[3]]
+[1] "e"
+ 
+[[4]]
+[1] "e" "e"
+ 
+ 
+# simplify = TRUE 返回一个矩阵
+str_extract_all(fruit, "e", simplify = TRUE)
+#   [,1] [,2]
+[1,] "e"  ""  
+[2,] ""   ""  
+[3,] "e"  ""  
+[4,] "e"  "e"
+
+
+
+
+
+
+
+
+
+
+
