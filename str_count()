@@ -1,0 +1,6 @@
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_count(fruit, "a")
+# [1] 1 3 1 1
+ 
+str_count(fruit, c("a", "b", "p", "p"))
+# [1] 1 1 1 3
