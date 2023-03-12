@@ -1,0 +1,4 @@
+space <- "space  "
+space <- str_trim(space)
+> space
+[1] "space"
