@@ -1,0 +1,29 @@
+str_sub(string, start = 1L, end = -1L)
+
+hw <- "Hadley Wickham"
+str_sub(hw, 1, 6)
+# [1] "Hadley"
+ 
+str_sub(hw, end = 6)
+# [1] "Hadley"
+ 
+str_sub(hw, 8)
+# [1] "Wickham"
+ 
+# 正数表示从前往后数，负数表示从后往前数
+str_sub(hw, -7)
+# [1] "Wickham"
+ 
+# 1和8分别是两个子集的起始位置，6和14分别是两个子集的终止位置
+str_sub(hw, c(1, 8), c(6, 14))
+# [1] "Hadley"  "Wickham"
+
+x <- "BBCDEF"
+str_sub(x, 1, 1) <- "A" 
+# [1] "ABCDEF"
+ 
+str_sub(x, -1, -1) <- "K"
+# [1] "ABCDEK"
+ 
+str_sub(x, 2, -2) <- ""
+# [1] "AK"
