@@ -1,0 +1,9 @@
+场景：与截取的功能类似，但是可以使用正则表达式匹配，更为强大。在我的工作中，常用来提取csv文件名。
+filepath <- c(
+  "C:/Users/Administrator/Desktop/a-2017.csv",
+  "C:/Users/Administrator/Desktop/b-2017.csv"
+)
+#使用正则表达式提取文件名
+filenames <- str_extract(filepath, "\\w-\\d+")
+> filenames
+[1] "a-2017" "b-2017"
