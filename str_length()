@@ -6,3 +6,5 @@ str_length(NA)
  
 str_length(c("i", "like", "programming", NA))
 # [1]  1  4 11 NA
+
+
