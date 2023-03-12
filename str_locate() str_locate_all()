@@ -1,0 +1,40 @@
+str_locate(string, pattern)
+str_locate_all(string, pattern)
+
+# str_locate()返回值是一个矩阵
+# 当字符串中有多个匹配的字符时，只返回第一个匹配的位置
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_locate(fruit, "e")
+#      start end
+[1,]     5   5
+[2,]    NA  NA
+[3,]     2   2
+[4,]     4   4
+ 
+str_locate(fruit, c("a", "b", "p", "p"))
+#      start end
+[1,]     1   1
+[2,]     1   1
+[3,]     1   1
+[4,]     1   1
+ 
+str_locate_all()返回值是一个矩阵的列表
+# 当字符串中有多个匹配的字符时，返回每一个的位置
+str_locate_all(fruit, "e")
+# [[1]]
+     start end
+[1,]     5   5
+ 
+[[2]]
+     start end
+ 
+[[3]]
+     start end
+[1,]     2   2
+ 
+[[4]]
+     start end
+[1,]     4   4
+[2,]     9   9
+ 
+ps. pattern可以是任意长度的字符串，不过上述示例中只用了单个字符，所以返回值中start与end相等。
