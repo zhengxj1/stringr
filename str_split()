@@ -1,0 +1,63 @@
+a <- "a_b_c_d"
+#分割
+a.split <- str_split(a, "_")
+a.split
+[[1]]
+[1] "a" "b" "c" "d"
+a.split <- str_split(a, "_",simplify = T)[,1]
+> a.split
+[1] "a"
+ 
+#合并，其实就是拼接字符串
+#使用unlist将a.split变成向量
+#当输入为单一向量时，使用collapse这个参数
+a.unite <- str_c(unlist(a.split), collapse = "_")
+> a.unite
+[1] "a_b_c_d"
+ 
+fruits <- c(
+  "apples and oranges and pears and bananas",
+  "pineapples and mangos and guavas"
+)
+ 
+str_split(fruits, " and ")
+# [[1]]
+[1] "apples"  "oranges" "pears"   "bananas"
+ 
+[[2]]
+[1] "pineapples" "mangos"     "guavas"    
+ 
+# 设置返回值为矩阵
+str_split(fruits, " and ", simplify = TRUE)
+#      [,1]         [,2]      [,3]     [,4]     
+[1,] "apples"     "oranges" "pears"  "bananas"
+[2,] "pineapples" "mangos"  "guavas" ""       
+ 
+# 参数n用来指定分割后得到的字符串个数
+str_split(fruits, " and ", n = 3)
+# [[1]]
+[1] "apples"            "oranges"           "pears and bananas"
+ 
+[[2]]
+[1] "pineapples" "mangos"     "guavas"    
+ 
+str_split(fruits, " and ", n = 2)
+# [[1]]
+[1] "apples"                        "oranges and pears and bananas"
+ 
+[[2]]
+[1] "pineapples"        "mangos and guavas"
+ 
+# str_split_fixed()与str_split(simplify = TRUE)等效，不过n值不能缺省，必须设置。
+str_split_fixed(fruits, " and ", 4)
+#   [,1]         [,2]      [,3]     [,4]     
+[1,] "apples"     "oranges" "pears"  "bananas"
+[2,] "pineapples" "mangos"  "guavas" ""   
+ 
+提取某字符前/后的字符串
+a <- c("x1_y","x2_y","x3_y")
+a=str_split(a, "_")
+a=as.data.frame(a)
+a=as.character(a[1,])
+a
+[1] "x1" "x2" "x3"
